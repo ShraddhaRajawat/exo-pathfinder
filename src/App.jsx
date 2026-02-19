@@ -6,6 +6,7 @@ import DSAPage from './pages/DSAPage';
 import JobPage from './pages/JobPage';
 import CompanyPage from './pages/CompanyPage';
 import PrepPage from './pages/PrepPage';
+import LoginPage from './pages/LoginPage';
 
 // Mock Pages (will be expanded)
 const Home = () => (
@@ -97,7 +98,7 @@ const Navbar = () => (
         <Link to="/jobs" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Jobs</Link>
         <Link to="/prep" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Preparation</Link>
         <Link to="/dsa" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>DSA</Link>
-        <button className="btn btn-primary" style={{ padding: '8px 20px' }}>Sign In</button>
+        <Link to="/login" className="btn btn-primary" style={{ padding: '8px 20px', textDecoration: 'none' }}>Sign In</Link>
       </div>
     </div>
   </nav>
@@ -146,6 +147,7 @@ function App() {
         <Route path="/prep" element={<PrepPage />} />
         <Route path="/hiring" element={<CompanyPage />} />
         <Route path="/dsa" element={<DSAPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </Router>
