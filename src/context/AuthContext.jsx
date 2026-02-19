@@ -22,7 +22,9 @@ export const AuthProvider = ({ children }) => {
                 name: 'Shraddha Rajawat',
                 username: 'ShraddhaRajawat',
                 avatar: 'https://github.com/ShraddhaRajawat.png',
-                email: 'shraddha@example.com'
+                email: 'shraddha@example.com',
+                linkedin: 'https://www.linkedin.com/in/shraddha-rajawat-26060428a/',
+                phone: '6306353376'
             };
             localStorage.setItem('user', JSON.stringify(mockUser));
             setUser(mockUser);
