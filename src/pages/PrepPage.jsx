@@ -42,7 +42,7 @@ const PrepPage = () => {
                                             flexDirection: 'column',
                                             cursor: 'pointer',
                                             border: isExpanded ? '1px solid var(--primary)' : '1px solid var(--glass-border)',
-                                            background: isExpanded ? 'rgba(12, 170, 245, 0.05)' : 'var(--glass)'
+                                            background: isExpanded ? 'rgba(125, 211, 252, 0.08)' : 'var(--glass)'
                                         }}
                                         onClick={() => toggleExpand(section.id, index)}
                                     >
@@ -52,7 +52,7 @@ const PrepPage = () => {
                                                     width: '40px',
                                                     height: '40px',
                                                     borderRadius: '10px',
-                                                    background: 'rgba(12, 170, 245, 0.1)',
+                                                    background: 'rgba(125, 211, 252, 0.15)',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
