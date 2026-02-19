@@ -14,22 +14,33 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const loginWithGithub = () => {
-        // Simulated GitHub Login
+    const loginWithGithub = async () => {
         setLoading(true);
-        setTimeout(() => {
-            const mockUser = {
-                name: 'Shraddha Rajawat',
-                username: 'ShraddhaRajawat',
-                avatar: 'https://github.com/ShraddhaRajawat.png',
-                email: 'shraddha@example.com',
-                linkedin: 'https://www.linkedin.com/in/shraddha-rajawat-26060428a/',
-                phone: '6306353376'
-            };
-            localStorage.setItem('user', JSON.stringify(mockUser));
-            setUser(mockUser);
+        try {
+            // Calling the local backend API
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: 'shraddha@example.com', password: 'testpassword' })
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                const mockUserWithDetails = {
+                    ...data.user,
+                    username: 'ShraddhaRajawat',
+                    linkedin: 'https://www.linkedin.com/in/shraddha-rajawat-26060428a/',
+                    phone: '6306353376'
+                };
+                localStorage.setItem('user', JSON.stringify(mockUserWithDetails));
+                setUser(mockUserWithDetails);
+            }
+        } catch (error) {
+            console.error('Backend connection failed:', error);
+            alert('Backend is not running. Please start the server.');
+        } finally {
             setLoading(false);
-        }, 1500);
+        }
     };
 
     const logout = () => {
