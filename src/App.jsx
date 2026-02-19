@@ -146,8 +146,10 @@ const Footer = () => (
       <div>
         <h4 style={{ marginBottom: '20px' }}>Connect</h4>
         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <li style={{ color: 'var(--text-muted)' }}>Twitter</li>
-          <li style={{ color: 'var(--text-muted)' }}>LinkedIn</li>
+          <li style={{ color: 'var(--text-muted)' }}>
+            <a href="https://www.linkedin.com/in/shraddha-rajawat-26060428a/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LinkedIn</a>
+          </li>
+          <li style={{ color: 'var(--text-muted)' }}>WhatsApp: +91 6306353376</li>
           <li style={{ color: 'var(--text-muted)' }}>Discord</li>
         </ul>
       </div>
