@@ -13,10 +13,16 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Request logger
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('✅ Connected to MongoDB Atlas'))
-    .catch(err => console.error('❌ MongoDB Connection Error:', err));
+    .then(() => console.log('✅ Connected to Database (Local/Cloud)'))
+    .catch(err => console.error('❌ Database Connection Error:', err));
 
 // Routes
 app.get('/api/jobs', async (req, res) => {
@@ -54,6 +60,6 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server is running on http://127.0.0.1:${PORT}`);
 });

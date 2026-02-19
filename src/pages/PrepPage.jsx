@@ -52,7 +52,7 @@ const PrepPage = () => {
                                                     width: '40px',
                                                     height: '40px',
                                                     borderRadius: '10px',
-                                                    background: 'rgba(56, 189, 248, 0.15)',
+                                                    background: 'rgba(186, 230, 253, 0.15)',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
