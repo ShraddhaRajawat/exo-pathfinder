@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #bae6fd;
-  /* Ethereal Light Sky Blue */
-  --primary-hover: #e0f2fe;
-  --secondary: #f0f9ff;
-  --accent: #ffffff;
+  --primary: #38bdf8;
+  /* Balanced Sky Blue */
+  --primary-hover: #0ea5e9;
+  --secondary: #7dd3fc;
+  --accent: #f8fafc;
   --background: #000000;
   --surface: #0a0a0a;
   --surface-hover: #141414;
@@ -80,7 +80,7 @@ h6 {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #bae6fd, #f0f9ff);
+  background: linear-gradient(135deg, #38bdf8, #7dd3fc);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
