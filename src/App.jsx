@@ -85,24 +85,45 @@ const FeatureCard = ({ icon, title, desc, link }) => (
   </motion.div>
 );
 
-const Navbar = () => (
-  <nav style={{ padding: '20px 0', borderBottom: '1px solid var(--border)', background: 'var(--glass)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100 }}>
-    <div className="main-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{ width: '35px', height: '35px', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Star size={20} fill="white" />
+import { useAuth } from './context/AuthContext';
+
+const Navbar = () => {
+  const { user, logout } = useAuth();
+
+  return (
+    <nav style={{ padding: '20px 0', borderBottom: '1px solid var(--border)', background: 'var(--glass)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100 }}>
+      <div className="main-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Link to="/" style={{ fontSize: '1.5rem', fontWeight: '800', textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ width: '35px', height: '35px', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Star size={20} fill="white" />
+          </div>
+          Pathfinder
+        </Link>
+        <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+          <Link to="/jobs" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Jobs</Link>
+          <Link to="/prep" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Preparation</Link>
+          <Link to="/dsa" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>DSA</Link>
+          {user ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img src={user.avatar} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1px solid var(--primary)' }} alt="Profile" />
+                <span style={{ fontSize: '0.9rem', color: 'white' }}>{user.name}</span>
+              </div>
+              <button
+                onClick={logout}
+                style={{ background: 'none', border: 'none', color: '#ff4444', cursor: 'pointer', fontSize: '0.9rem' }}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-primary" style={{ padding: '8px 20px', textDecoration: 'none' }}>Sign In</Link>
+          )}
         </div>
-        Pathfinder
-      </Link>
-      <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
-        <Link to="/jobs" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Jobs</Link>
-        <Link to="/prep" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>Preparation</Link>
-        <Link to="/dsa" style={{ textDecoration: 'none', color: 'var(--text-muted)', fontWeight: '500' }}>DSA</Link>
-        <Link to="/login" className="btn btn-primary" style={{ padding: '8px 20px', textDecoration: 'none' }}>Sign In</Link>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
 
 
 const Footer = () => (

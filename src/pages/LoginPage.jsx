@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Lock, ArrowRight, Github } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Github, Loader2 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { loginWithGithub, user, loading } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user, navigate]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert(`Testing Mode: Trying to ${isLogin ? 'Login' : 'Sign Up'} with ${email}`);
+        alert(`Normal Login is disabled. Please use "Sign In with GitHub" for testing.`);
     };
 
     return (
@@ -42,7 +52,6 @@ const LoginPage = () => {
                         <input
                             type="email"
                             placeholder="Email Address"
-                            required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             style={{
@@ -62,7 +71,6 @@ const LoginPage = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             style={{
@@ -77,14 +85,8 @@ const LoginPage = () => {
                         />
                     </div>
 
-                    {isLogin && (
-                        <div style={{ textAlign: 'right', fontSize: '0.85rem' }}>
-                            <a href="#" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Forgot Password?</a>
-                        </div>
-                    )}
-
-                    <button className="btn btn-primary" type="submit" style={{ width: '100%', padding: '14px' }}>
-                        {isLogin ? 'Sign In' : 'Create Account'} <ArrowRight size={18} style={{ marginLeft: '8px' }} />
+                    <button className="btn btn-primary" type="submit" style={{ width: '100%', padding: '14px', opacity: 0.7, cursor: 'not-allowed' }}>
+                        {isLogin ? 'Sign In' : 'Create Account'}
                     </button>
                 </form>
 
@@ -94,18 +96,21 @@ const LoginPage = () => {
                     <div style={{ flex: 1, height: '1px', background: 'var(--border)' }}></div>
                 </div>
 
-                <button className="btn" style={{ width: '100%', background: 'white', color: 'black', marginBottom: '20px' }}>
-                    <Github size={20} style={{ marginRight: '10px' }} /> GitHub
+                <button
+                    className="btn"
+                    onClick={loginWithGithub}
+                    disabled={loading}
+                    style={{ width: '100%', background: 'white', color: 'black', marginBottom: '20px' }}
+                >
+                    {loading ? (
+                        <Loader2 className="animate-spin" size={20} />
+                    ) : (
+                        <><Github size={20} style={{ marginRight: '10px' }} /> Sign in with GitHub</>
+                    )}
                 </button>
 
                 <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    {isLogin ? "Don't have an account? " : "Already have an account? "}
-                    <span
-                        onClick={() => setIsLogin(!isLogin)}
-                        style={{ color: 'var(--primary)', cursor: 'pointer', fontWeight: '600' }}
-                    >
-                        {isLogin ? 'Sign Up' : 'Log In'}
-                    </span>
+                    Connect with <strong>@ShraddhaRajawat</strong> to continue
                 </p>
             </motion.div>
         </div>
