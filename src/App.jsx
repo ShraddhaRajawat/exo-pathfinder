@@ -41,25 +41,25 @@ const Home = () => (
 
     <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', margin: '40px 0' }}>
       <FeatureCard
-        icon={<Briefcase color="#2dd4bf" />}
+        icon={<Briefcase color="#38bdf8" />}
         title="Job Portal"
         desc="Curated job listings from top startups and tech giants with easy apply."
         link="/jobs"
       />
       <FeatureCard
-        icon={<BookOpen color="#2dd4bf" />}
+        icon={<BookOpen color="#38bdf8" />}
         title="Preparation"
         desc="Master Aptitude, Technical, and HR rounds with our expert notes."
         link="/prep"
       />
       <FeatureCard
-        icon={<Building2 color="#2dd4bf" />}
+        icon={<Building2 color="#38bdf8" />}
         title="Hiring Process"
         desc="Step-by-step guides for company-specific interview patterns."
         link="/hiring"
       />
       <FeatureCard
-        icon={<Code2 color="#2dd4bf" />}
+        icon={<Code2 color="#38bdf8" />}
         title="DSA Prep"
         desc="Topic-wise sheets and practice problems to ace coding interviews."
         link="/dsa"
