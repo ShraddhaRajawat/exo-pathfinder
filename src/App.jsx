@@ -7,6 +7,7 @@ import JobPage from './pages/JobPage';
 import CompanyPage from './pages/CompanyPage';
 import PrepPage from './pages/PrepPage';
 import LoginPage from './pages/LoginPage';
+import AddJobPage from './pages/AddJobPage';
 
 // Mock Pages (will be expanded)
 const Home = () => (
@@ -171,6 +172,7 @@ function App() {
         <Route path="/hiring" element={<CompanyPage />} />
         <Route path="/dsa" element={<DSAPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/add-job" element={<AddJobPage />} />
       </Routes>
       <Footer />
     </Router>
