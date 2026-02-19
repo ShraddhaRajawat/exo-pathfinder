@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --secondary: #ec4899;
-  --accent: #10b981;
-  --background: #0f172a;
-  --surface: #1e293b;
-  --surface-hover: #334155;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --border: #334155;
-  --glass: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --primary: #8b5cf6;
+  /* Modern Violet */
+  --primary-hover: #7c3aed;
+  --secondary: #fb923c;
+  /* Hand-picked Amber */
+  --accent: #22d3ee;
+  /* Soft Cyan */
+  --background: #09090b;
+  /* Rich dark depth */
+  --surface: #18181b;
+  --surface-hover: #27272a;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --border: #27272a;
+  --glass: rgba(24, 24, 27, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -79,7 +83,7 @@ h6 {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #818cf8, #f472b6);
+  background: linear-gradient(135deg, #a78bfa, #fb923c);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
