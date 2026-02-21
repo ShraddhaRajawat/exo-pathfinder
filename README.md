@@ -1,5 +1,7 @@
 # 🚀 Exo-Pathfinder | Full-Stack Career Development Platform
 
+**Live Demo:** [https://exo-pathfinder.vercel.app](https://exo-pathfinder.vercel.app)
+
 Exo-Pathfinder is a premium, full-stack web application designed to help students and job seekers navigate their career journey. From curated job listings to detailed interview preparation notes and DSA practice sheets, it's an all-in-one hub for career growth.
 
 Built with the **MERN Stack** and featuring a stunning **Glassmorphism** design.
