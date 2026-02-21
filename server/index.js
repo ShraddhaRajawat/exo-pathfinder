@@ -60,6 +60,11 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 Server is running on http://127.0.0.1:${PORT}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`🚀 Server is running on http://127.0.0.1:${PORT}`);
+    });
+}
+
+module.exports = app;
